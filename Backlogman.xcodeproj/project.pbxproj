@@ -1,0 +1,611 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		49040F73BC9E4394AF5AF2C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3D39C8DA26404489BC5692 /* libPods.a */; };
+		BF0FB76C1833BB4A005DBF51 /* BKGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0FB76B1833BB4A005DBF51 /* BKGObject.m */; };
+		BF0FB7751833D505005DBF51 /* BKGAuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0FB7741833D505005DBF51 /* BKGAuthToken.m */; };
+		BF267D77183511D700F25D73 /* BKGProject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF267D76183511D700F25D73 /* BKGProject.m */; };
+		BF267D7A183511E300F25D73 /* BKGOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = BF267D79183511E300F25D73 /* BKGOrganization.m */; };
+		BF267D8C1836536100F25D73 /* BKGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF267D8B1836536100F25D73 /* BKGLoginViewController.m */; };
+		BF28D36F18312D4000E008AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF28D36E18312D4000E008AB /* Foundation.framework */; };
+		BF28D37118312D4000E008AB /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF28D37018312D4000E008AB /* CoreGraphics.framework */; };
+		BF28D37318312D4000E008AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF28D37218312D4000E008AB /* UIKit.framework */; };
+		BF28D37918312D4000E008AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF28D37718312D4000E008AB /* InfoPlist.strings */; };
+		BF28D37B18312D4000E008AB /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28D37A18312D4000E008AB /* main.m */; };
+		BF28D37F18312D4000E008AB /* BKGAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28D37E18312D4000E008AB /* BKGAppDelegate.m */; };
+		BF28D38218312D4000E008AB /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF28D38018312D4000E008AB /* Main_iPhone.storyboard */; };
+		BF28D38518312D4000E008AB /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF28D38318312D4000E008AB /* Main_iPad.storyboard */; };
+		BF28D38818312D4000E008AB /* BKGMasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28D38718312D4000E008AB /* BKGMasterViewController.m */; };
+		BF28D38B18312D4000E008AB /* BKGDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28D38A18312D4000E008AB /* BKGDetailViewController.m */; };
+		BF28D38D18312D4000E008AB /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF28D38C18312D4000E008AB /* Images.xcassets */; };
+		BF28D39418312D4000E008AB /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF28D39318312D4000E008AB /* XCTest.framework */; };
+		BF28D39518312D4000E008AB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF28D36E18312D4000E008AB /* Foundation.framework */; };
+		BF28D39618312D4000E008AB /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF28D37218312D4000E008AB /* UIKit.framework */; };
+		BF28D39E18312D4000E008AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF28D39C18312D4000E008AB /* InfoPlist.strings */; };
+		BF28D3A018312D4000E008AB /* BacklogmanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28D39F18312D4000E008AB /* BacklogmanTests.m */; };
+		BF3723661833E80000562E00 /* BKGCredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3723651833E80000562E00 /* BKGCredentialStore.m */; };
+		BFFBD06018339071008F9EE1 /* BKGAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFBD05F18339071008F9EE1 /* BKGAPIClient.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		BF28D39718312D4000E008AB /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF28D36318312D4000E008AB /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF28D36A18312D4000E008AB;
+			remoteInfo = Backlogman;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7E3D39C8DA26404489BC5692 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		839F700533A34AB0B54742D2 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+		BF0FB76A1833BB4A005DBF51 /* BKGObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGObject.h; sourceTree = "<group>"; };
+		BF0FB76B1833BB4A005DBF51 /* BKGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGObject.m; sourceTree = "<group>"; };
+		BF0FB7731833D505005DBF51 /* BKGAuthToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGAuthToken.h; sourceTree = "<group>"; };
+		BF0FB7741833D505005DBF51 /* BKGAuthToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGAuthToken.m; sourceTree = "<group>"; };
+		BF267D75183511D700F25D73 /* BKGProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGProject.h; sourceTree = "<group>"; };
+		BF267D76183511D700F25D73 /* BKGProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGProject.m; sourceTree = "<group>"; };
+		BF267D78183511E300F25D73 /* BKGOrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGOrganization.h; sourceTree = "<group>"; };
+		BF267D79183511E300F25D73 /* BKGOrganization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGOrganization.m; sourceTree = "<group>"; };
+		BF267D7B183511FD00F25D73 /* BKGModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKGModel.h; sourceTree = "<group>"; };
+		BF267D8A1836536100F25D73 /* BKGLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGLoginViewController.h; sourceTree = "<group>"; };
+		BF267D8B1836536100F25D73 /* BKGLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGLoginViewController.m; sourceTree = "<group>"; };
+		BF28D36B18312D4000E008AB /* Backlogman.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Backlogman.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF28D36E18312D4000E008AB /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		BF28D37018312D4000E008AB /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		BF28D37218312D4000E008AB /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		BF28D37618312D4000E008AB /* Backlogman-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Backlogman-Info.plist"; sourceTree = "<group>"; };
+		BF28D37818312D4000E008AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF28D37A18312D4000E008AB /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		BF28D37C18312D4000E008AB /* Backlogman-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Backlogman-Prefix.pch"; sourceTree = "<group>"; };
+		BF28D37D18312D4000E008AB /* BKGAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKGAppDelegate.h; sourceTree = "<group>"; };
+		BF28D37E18312D4000E008AB /* BKGAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKGAppDelegate.m; sourceTree = "<group>"; };
+		BF28D38118312D4000E008AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		BF28D38418312D4000E008AB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		BF28D38618312D4000E008AB /* BKGMasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKGMasterViewController.h; sourceTree = "<group>"; };
+		BF28D38718312D4000E008AB /* BKGMasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKGMasterViewController.m; sourceTree = "<group>"; };
+		BF28D38918312D4000E008AB /* BKGDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BKGDetailViewController.h; sourceTree = "<group>"; };
+		BF28D38A18312D4000E008AB /* BKGDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BKGDetailViewController.m; sourceTree = "<group>"; };
+		BF28D38C18312D4000E008AB /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		BF28D39218312D4000E008AB /* BacklogmanTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BacklogmanTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF28D39318312D4000E008AB /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		BF28D39B18312D4000E008AB /* BacklogmanTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "BacklogmanTests-Info.plist"; sourceTree = "<group>"; };
+		BF28D39D18312D4000E008AB /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF28D39F18312D4000E008AB /* BacklogmanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BacklogmanTests.m; sourceTree = "<group>"; };
+		BF3723641833E80000562E00 /* BKGCredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGCredentialStore.h; sourceTree = "<group>"; };
+		BF3723651833E80000562E00 /* BKGCredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGCredentialStore.m; sourceTree = "<group>"; };
+		BFFBD05E18339071008F9EE1 /* BKGAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGAPIClient.h; sourceTree = "<group>"; };
+		BFFBD05F18339071008F9EE1 /* BKGAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGAPIClient.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF28D36818312D4000E008AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF28D37118312D4000E008AB /* CoreGraphics.framework in Frameworks */,
+				BF28D37318312D4000E008AB /* UIKit.framework in Frameworks */,
+				BF28D36F18312D4000E008AB /* Foundation.framework in Frameworks */,
+				49040F73BC9E4394AF5AF2C7 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF28D38F18312D4000E008AB /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF28D39418312D4000E008AB /* XCTest.framework in Frameworks */,
+				BF28D39618312D4000E008AB /* UIKit.framework in Frameworks */,
+				BF28D39518312D4000E008AB /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF28D36218312D4000E008AB = {
+			isa = PBXGroup;
+			children = (
+				BF28D37418312D4000E008AB /* Backlogman */,
+				BF28D39918312D4000E008AB /* BacklogmanTests */,
+				BF28D36D18312D4000E008AB /* Frameworks */,
+				BF28D36C18312D4000E008AB /* Products */,
+				839F700533A34AB0B54742D2 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		BF28D36C18312D4000E008AB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF28D36B18312D4000E008AB /* Backlogman.app */,
+				BF28D39218312D4000E008AB /* BacklogmanTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF28D36D18312D4000E008AB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF28D36E18312D4000E008AB /* Foundation.framework */,
+				BF28D37018312D4000E008AB /* CoreGraphics.framework */,
+				BF28D37218312D4000E008AB /* UIKit.framework */,
+				BF28D39318312D4000E008AB /* XCTest.framework */,
+				7E3D39C8DA26404489BC5692 /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF28D37418312D4000E008AB /* Backlogman */ = {
+			isa = PBXGroup;
+			children = (
+				BF3723631833E7E000562E00 /* Util */,
+				BFFBD05D18339019008F9EE1 /* Network */,
+				BFFBD05C18339011008F9EE1 /* Model */,
+				BF28D37D18312D4000E008AB /* BKGAppDelegate.h */,
+				BF28D37E18312D4000E008AB /* BKGAppDelegate.m */,
+				BF28D38018312D4000E008AB /* Main_iPhone.storyboard */,
+				BF28D38318312D4000E008AB /* Main_iPad.storyboard */,
+				BF28D38618312D4000E008AB /* BKGMasterViewController.h */,
+				BF28D38718312D4000E008AB /* BKGMasterViewController.m */,
+				BF28D38918312D4000E008AB /* BKGDetailViewController.h */,
+				BF28D38A18312D4000E008AB /* BKGDetailViewController.m */,
+				BF267D8A1836536100F25D73 /* BKGLoginViewController.h */,
+				BF267D8B1836536100F25D73 /* BKGLoginViewController.m */,
+				BF28D38C18312D4000E008AB /* Images.xcassets */,
+				BF28D37518312D4000E008AB /* Supporting Files */,
+			);
+			path = Backlogman;
+			sourceTree = "<group>";
+		};
+		BF28D37518312D4000E008AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF28D37618312D4000E008AB /* Backlogman-Info.plist */,
+				BF28D37718312D4000E008AB /* InfoPlist.strings */,
+				BF28D37A18312D4000E008AB /* main.m */,
+				BF28D37C18312D4000E008AB /* Backlogman-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF28D39918312D4000E008AB /* BacklogmanTests */ = {
+			isa = PBXGroup;
+			children = (
+				BF28D39F18312D4000E008AB /* BacklogmanTests.m */,
+				BF28D39A18312D4000E008AB /* Supporting Files */,
+			);
+			path = BacklogmanTests;
+			sourceTree = "<group>";
+		};
+		BF28D39A18312D4000E008AB /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF28D39B18312D4000E008AB /* BacklogmanTests-Info.plist */,
+				BF28D39C18312D4000E008AB /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		BF3723631833E7E000562E00 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				BF3723641833E80000562E00 /* BKGCredentialStore.h */,
+				BF3723651833E80000562E00 /* BKGCredentialStore.m */,
+			);
+			name = Util;
+			sourceTree = "<group>";
+		};
+		BFFBD05C18339011008F9EE1 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BF0FB76A1833BB4A005DBF51 /* BKGObject.h */,
+				BF0FB76B1833BB4A005DBF51 /* BKGObject.m */,
+				BF267D75183511D700F25D73 /* BKGProject.h */,
+				BF267D76183511D700F25D73 /* BKGProject.m */,
+				BF267D78183511E300F25D73 /* BKGOrganization.h */,
+				BF267D79183511E300F25D73 /* BKGOrganization.m */,
+				BF267D7B183511FD00F25D73 /* BKGModel.h */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		BFFBD05D18339019008F9EE1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				BFFBD05E18339071008F9EE1 /* BKGAPIClient.h */,
+				BFFBD05F18339071008F9EE1 /* BKGAPIClient.m */,
+				BF0FB7731833D505005DBF51 /* BKGAuthToken.h */,
+				BF0FB7741833D505005DBF51 /* BKGAuthToken.m */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		BF28D36A18312D4000E008AB /* Backlogman */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF28D3A318312D4000E008AB /* Build configuration list for PBXNativeTarget "Backlogman" */;
+			buildPhases = (
+				D4696B1C4D96401484CA871D /* Check Pods Manifest.lock */,
+				BF28D36718312D4000E008AB /* Sources */,
+				BF28D36818312D4000E008AB /* Frameworks */,
+				BF28D36918312D4000E008AB /* Resources */,
+				A5547476114042FBB965C67C /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Backlogman;
+			productName = Backlogman;
+			productReference = BF28D36B18312D4000E008AB /* Backlogman.app */;
+			productType = "com.apple.product-type.application";
+		};
+		BF28D39118312D4000E008AB /* BacklogmanTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF28D3A618312D4000E008AB /* Build configuration list for PBXNativeTarget "BacklogmanTests" */;
+			buildPhases = (
+				BF28D38E18312D4000E008AB /* Sources */,
+				BF28D38F18312D4000E008AB /* Frameworks */,
+				BF28D39018312D4000E008AB /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				BF28D39818312D4000E008AB /* PBXTargetDependency */,
+			);
+			name = BacklogmanTests;
+			productName = BacklogmanTests;
+			productReference = BF28D39218312D4000E008AB /* BacklogmanTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF28D36318312D4000E008AB /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = BKG;
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = VFE;
+				TargetAttributes = {
+					BF28D39118312D4000E008AB = {
+						TestTargetID = BF28D36A18312D4000E008AB;
+					};
+				};
+			};
+			buildConfigurationList = BF28D36618312D4000E008AB /* Build configuration list for PBXProject "Backlogman" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = BF28D36218312D4000E008AB;
+			productRefGroup = BF28D36C18312D4000E008AB /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF28D36A18312D4000E008AB /* Backlogman */,
+				BF28D39118312D4000E008AB /* BacklogmanTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF28D36918312D4000E008AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF28D38518312D4000E008AB /* Main_iPad.storyboard in Resources */,
+				BF28D38D18312D4000E008AB /* Images.xcassets in Resources */,
+				BF28D38218312D4000E008AB /* Main_iPhone.storyboard in Resources */,
+				BF28D37918312D4000E008AB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF28D39018312D4000E008AB /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF28D39E18312D4000E008AB /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		A5547476114042FBB965C67C /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D4696B1C4D96401484CA871D /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF28D36718312D4000E008AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF267D77183511D700F25D73 /* BKGProject.m in Sources */,
+				BF0FB7751833D505005DBF51 /* BKGAuthToken.m in Sources */,
+				BF3723661833E80000562E00 /* BKGCredentialStore.m in Sources */,
+				BF28D38818312D4000E008AB /* BKGMasterViewController.m in Sources */,
+				BF28D37B18312D4000E008AB /* main.m in Sources */,
+				BFFBD06018339071008F9EE1 /* BKGAPIClient.m in Sources */,
+				BF28D38B18312D4000E008AB /* BKGDetailViewController.m in Sources */,
+				BF28D37F18312D4000E008AB /* BKGAppDelegate.m in Sources */,
+				BF267D8C1836536100F25D73 /* BKGLoginViewController.m in Sources */,
+				BF267D7A183511E300F25D73 /* BKGOrganization.m in Sources */,
+				BF0FB76C1833BB4A005DBF51 /* BKGObject.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		BF28D38E18312D4000E008AB /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF28D3A018312D4000E008AB /* BacklogmanTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		BF28D39818312D4000E008AB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF28D36A18312D4000E008AB /* Backlogman */;
+			targetProxy = BF28D39718312D4000E008AB /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		BF28D37718312D4000E008AB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF28D37818312D4000E008AB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		BF28D38018312D4000E008AB /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF28D38118312D4000E008AB /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		BF28D38318312D4000E008AB /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF28D38418312D4000E008AB /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		BF28D39C18312D4000E008AB /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF28D39D18312D4000E008AB /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF28D3A118312D4000E008AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF28D3A218312D4000E008AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BF28D3A418312D4000E008AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 839F700533A34AB0B54742D2 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
+				INFOPLIST_FILE = "Backlogman/Backlogman-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		BF28D3A518312D4000E008AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 839F700533A34AB0B54742D2 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
+				INFOPLIST_FILE = "Backlogman/Backlogman-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		BF28D3A718312D4000E008AB /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Backlogman.app/Backlogman";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "BacklogmanTests/BacklogmanTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		BF28D3A818312D4000E008AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Backlogman.app/Backlogman";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
+				INFOPLIST_FILE = "BacklogmanTests/BacklogmanTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF28D36618312D4000E008AB /* Build configuration list for PBXProject "Backlogman" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF28D3A118312D4000E008AB /* Debug */,
+				BF28D3A218312D4000E008AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF28D3A318312D4000E008AB /* Build configuration list for PBXNativeTarget "Backlogman" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF28D3A418312D4000E008AB /* Debug */,
+				BF28D3A518312D4000E008AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF28D3A618312D4000E008AB /* Build configuration list for PBXNativeTarget "BacklogmanTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF28D3A718312D4000E008AB /* Debug */,
+				BF28D3A818312D4000E008AB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF28D36318312D4000E008AB /* Project object */;
+}
