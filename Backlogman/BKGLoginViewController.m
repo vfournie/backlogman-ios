@@ -11,12 +11,12 @@
 
 @interface BKGLoginViewController ()
 
-@property (weak, nonatomic) IBOutlet UILabel *errorLabel;
-@property (weak, nonatomic) IBOutlet UIView *infoView;
-@property (weak, nonatomic) IBOutlet UILabel *infoLabel;
-@property (weak, nonatomic) IBOutlet UITextField *usernameField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordField;
-@property (weak, nonatomic) IBOutlet UIButton *loginButton;
+@property (strong, nonatomic) IBOutlet UILabel *errorLabel;
+@property (strong, nonatomic) IBOutlet UIView *infoView;
+@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+@property (strong, nonatomic) IBOutlet UITextField *usernameField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+@property (strong, nonatomic) IBOutlet UIButton *loginButton;
 
 @end
 
@@ -125,9 +125,10 @@
         [[BKGAPIClient sharedClient] signInWithUsername:username
                                                password:password
                                                 success:^(BKGAuthToken *token) {
+                                                    id<BKGLoginViewControllerDelegate> delegate = self.signInDelegate;
                                                     dispatch_async(dispatch_get_main_queue(), ^{
-                                                        if (self.signInDelegate) {
-                                                            [self.signInDelegate signInDidSucceed:self];
+                                                        if (delegate) {
+                                                            [delegate signInDidSucceed:self];
                                                         }
                                                     });
                                                 }

@@ -15,9 +15,27 @@
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return @{
-             @"objectId": @"id",
-             @"url" : @"url"
+             @"objectId": @"id"
             };
 }
-    
+
++ (NSValueTransformer *)objectIdJSONTransformer
+{
+    return [MTLValueTransformer
+            reversibleTransformerWithForwardBlock:^(NSNumber *num) {
+                return num.stringValue;
+            }
+            reverseBlock:^ id (NSString *str) {
+                if (str == nil) {
+                    return nil;
+                }
+                return [NSDecimalNumber decimalNumberWithString:str];
+            }];
+}
+
++ (NSValueTransformer *)urlJSONTransformer
+{
+    return [NSValueTransformer valueTransformerForName:MTLURLValueTransformerName];
+}
+
 @end

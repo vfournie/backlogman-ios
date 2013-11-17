@@ -7,17 +7,26 @@
 //
 
 #import "BKGOrganization.h"
+#import "BKGProject.h"
+#import "BKGBacklog.h"
 
 @implementation BKGOrganization
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return [super.JSONKeyPathsByPropertyKey mtl_dictionaryByAddingEntriesFromDictionary:@{
-             @"name" : @"name",
-             @"description" : @"description",
-             @"email" : @"email",
              @"webSite" : @"web_site"
             }];
+}
+
++ (NSValueTransformer *)projectsJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:BKGProject.class];
+}
+
++ (NSValueTransformer *)backlogsJSONTransformer
+{
+    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:BKGBacklog.class];
 }
 
 @end

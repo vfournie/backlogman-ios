@@ -10,6 +10,10 @@
 		49040F73BC9E4394AF5AF2C7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E3D39C8DA26404489BC5692 /* libPods.a */; };
 		BF0FB76C1833BB4A005DBF51 /* BKGObject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0FB76B1833BB4A005DBF51 /* BKGObject.m */; };
 		BF0FB7751833D505005DBF51 /* BKGAuthToken.m in Sources */ = {isa = PBXBuildFile; fileRef = BF0FB7741833D505005DBF51 /* BKGAuthToken.m */; };
+		BF1971071839153700414E4A /* BKGBacklog.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1971061839153700414E4A /* BKGBacklog.m */; };
+		BF19710A1839154200414E4A /* BKGStory.m in Sources */ = {isa = PBXBuildFile; fileRef = BF1971091839154200414E4A /* BKGStory.m */; };
+		BF19710D18391D8F00414E4A /* BKGStat.m in Sources */ = {isa = PBXBuildFile; fileRef = BF19710C18391D8F00414E4A /* BKGStat.m */; };
+		BF197110183926BB00414E4A /* BKGEntity.m in Sources */ = {isa = PBXBuildFile; fileRef = BF19710F183926BB00414E4A /* BKGEntity.m */; };
 		BF267D77183511D700F25D73 /* BKGProject.m in Sources */ = {isa = PBXBuildFile; fileRef = BF267D76183511D700F25D73 /* BKGProject.m */; };
 		BF267D7A183511E300F25D73 /* BKGOrganization.m in Sources */ = {isa = PBXBuildFile; fileRef = BF267D79183511E300F25D73 /* BKGOrganization.m */; };
 		BF267D8C1836536100F25D73 /* BKGLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BF267D8B1836536100F25D73 /* BKGLoginViewController.m */; };
@@ -50,6 +54,14 @@
 		BF0FB76B1833BB4A005DBF51 /* BKGObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGObject.m; sourceTree = "<group>"; };
 		BF0FB7731833D505005DBF51 /* BKGAuthToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGAuthToken.h; sourceTree = "<group>"; };
 		BF0FB7741833D505005DBF51 /* BKGAuthToken.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGAuthToken.m; sourceTree = "<group>"; };
+		BF1971051839153700414E4A /* BKGBacklog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGBacklog.h; sourceTree = "<group>"; };
+		BF1971061839153700414E4A /* BKGBacklog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGBacklog.m; sourceTree = "<group>"; };
+		BF1971081839154200414E4A /* BKGStory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGStory.h; sourceTree = "<group>"; };
+		BF1971091839154200414E4A /* BKGStory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGStory.m; sourceTree = "<group>"; };
+		BF19710B18391D8F00414E4A /* BKGStat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGStat.h; sourceTree = "<group>"; };
+		BF19710C18391D8F00414E4A /* BKGStat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGStat.m; sourceTree = "<group>"; };
+		BF19710E183926BB00414E4A /* BKGEntity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGEntity.h; sourceTree = "<group>"; };
+		BF19710F183926BB00414E4A /* BKGEntity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGEntity.m; sourceTree = "<group>"; };
 		BF267D75183511D700F25D73 /* BKGProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGProject.h; sourceTree = "<group>"; };
 		BF267D76183511D700F25D73 /* BKGProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGProject.m; sourceTree = "<group>"; };
 		BF267D78183511E300F25D73 /* BKGOrganization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGOrganization.h; sourceTree = "<group>"; };
@@ -205,13 +217,21 @@
 		BFFBD05C18339011008F9EE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF267D7B183511FD00F25D73 /* BKGModel.h */,
+				BF19710E183926BB00414E4A /* BKGEntity.h */,
+				BF19710F183926BB00414E4A /* BKGEntity.m */,
 				BF0FB76A1833BB4A005DBF51 /* BKGObject.h */,
 				BF0FB76B1833BB4A005DBF51 /* BKGObject.m */,
-				BF267D75183511D700F25D73 /* BKGProject.h */,
-				BF267D76183511D700F25D73 /* BKGProject.m */,
 				BF267D78183511E300F25D73 /* BKGOrganization.h */,
 				BF267D79183511E300F25D73 /* BKGOrganization.m */,
-				BF267D7B183511FD00F25D73 /* BKGModel.h */,
+				BF267D75183511D700F25D73 /* BKGProject.h */,
+				BF267D76183511D700F25D73 /* BKGProject.m */,
+				BF1971051839153700414E4A /* BKGBacklog.h */,
+				BF1971061839153700414E4A /* BKGBacklog.m */,
+				BF1971081839154200414E4A /* BKGStory.h */,
+				BF1971091839154200414E4A /* BKGStory.m */,
+				BF19710B18391D8F00414E4A /* BKGStat.h */,
+				BF19710C18391D8F00414E4A /* BKGStat.m */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -364,13 +384,17 @@
 				BF267D77183511D700F25D73 /* BKGProject.m in Sources */,
 				BF0FB7751833D505005DBF51 /* BKGAuthToken.m in Sources */,
 				BF3723661833E80000562E00 /* BKGCredentialStore.m in Sources */,
+				BF197110183926BB00414E4A /* BKGEntity.m in Sources */,
 				BF28D38818312D4000E008AB /* BKGMasterViewController.m in Sources */,
+				BF19710D18391D8F00414E4A /* BKGStat.m in Sources */,
 				BF28D37B18312D4000E008AB /* main.m in Sources */,
+				BF19710A1839154200414E4A /* BKGStory.m in Sources */,
 				BFFBD06018339071008F9EE1 /* BKGAPIClient.m in Sources */,
 				BF28D38B18312D4000E008AB /* BKGDetailViewController.m in Sources */,
 				BF28D37F18312D4000E008AB /* BKGAppDelegate.m in Sources */,
 				BF267D8C1836536100F25D73 /* BKGLoginViewController.m in Sources */,
 				BF267D7A183511E300F25D73 /* BKGOrganization.m in Sources */,
+				BF1971071839153700414E4A /* BKGBacklog.m in Sources */,
 				BF0FB76C1833BB4A005DBF51 /* BKGObject.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -514,6 +538,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
 				INFOPLIST_FILE = "Backlogman/Backlogman-Info.plist";
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-Wno-sign-compare",
+					"-Warc-repeated-use-of-weak",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -528,6 +559,13 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
 				INFOPLIST_FILE = "Backlogman/Backlogman-Info.plist";
+				OTHER_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+					"-Wno-unused-parameter",
+					"-Wno-sign-compare",
+					"-Warc-repeated-use-of-weak",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

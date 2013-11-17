@@ -15,5 +15,7 @@
 @property (nonatomic, copy, readonly) NSString *description;
 @property (nonatomic, copy, readonly) NSString *email;
 @property (nonatomic, copy, readonly) NSString *webSite;
+@property (nonatomic, copy) NSArray *projects;
+@property (nonatomic, copy) NSArray *backlogs;
 
 @end

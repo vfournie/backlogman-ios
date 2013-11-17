@@ -10,7 +10,7 @@
 #import <AFNetworking/AFHTTPSessionManager.h>
 
 @class BKGAuthToken;
-
+@class BKGObject;
 
 // The domain for all errors originating in BKGAPIClient.
 extern NSString * const BKGAPIClientErrorDomain;
@@ -19,10 +19,11 @@ extern NSString * const BKGAPIClientErrorDomain;
 // JSON.
 extern const NSInteger BKGAPIClientErrorJSONParsingFailed;
 
-
 typedef void(^BKGError)(NSError *error);
 typedef void(^BKGSignInSuccess)(BKGAuthToken *token);
 typedef void(^BKGArraySuccess)(NSArray *list);
+typedef void(^BKGObjectSuccess)(BKGObject *object);
+
 
 // Represents a Backlogman session.
 //
@@ -37,10 +38,39 @@ typedef void(^BKGArraySuccess)(NSArray *list);
                    success:(BKGSignInSuccess)success
                    failure:(BKGError)failure;
 
-- (void)getProjectsWithSuccess:(BKGArraySuccess)success
-                       failure:(BKGError)failure;
-
 - (void)getOrganizationsWithSuccess:(BKGArraySuccess)success
                             failure:(BKGError)failure;
+
+- (void)getStandaloneProjectsWithSuccess:(BKGArraySuccess)success
+                                 failure:(BKGError)failure;
+
+- (void)getProjectsForOrganizationId:(NSString *)orgId
+                             success:(BKGArraySuccess)success
+                             failure:(BKGError)failure;
+
+- (void)getStoriesForBacklogId:(NSString *)backlogId
+                       success:(BKGArraySuccess)success
+                       failure:(BKGError)failure;
+
+- (void)getOrganizationForId:(NSString *)organizationId
+                     success:(BKGObjectSuccess)success
+                     failure:(BKGError)failure;
+
+- (void)getProjectForId:(NSString *)projectId
+                success:(BKGObjectSuccess)success
+                failure:(BKGError)failure;
+
+- (void)getBacklogForId:(NSString *)backlogId
+                success:(BKGObjectSuccess)success
+                failure:(BKGError)failure;
+
+- (void)getStoryForId:(NSString *)storyId
+            backLogId:(NSString *)backlogId
+              success:(BKGObjectSuccess)success
+              failure:(BKGError)failure;
+
+- (void)getObjectDetail:(BKGObject *)object
+                success:(BKGObjectSuccess)success
+                failure:(BKGError)failure;
 
 @end

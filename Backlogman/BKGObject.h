@@ -7,8 +7,9 @@
 //
 
 #import <Mantle/Mantle.h>
+#import "BKGEntity.h"
 
-@interface BKGObject : MTLModel <MTLJSONSerializing>
+@interface BKGObject : BKGEntity <MTLJSONSerializing>
 
 @property (nonatomic, copy, readonly) NSString *objectId;
 @property (nonatomic, copy, readonly) NSURL *url;

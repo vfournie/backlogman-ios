@@ -1,33 +1,29 @@
 //
-//  BKGProject.m
+//  BKGBacklog.m
 //  Backlogman
 //
-//  Created by Vincent Fournié on 14.11.13.
+//  Created by Vincent Fournié on 17.11.2013.
 //  Copyright (c) 2013 VFE. All rights reserved.
 //
 
-#import "BKGProject.h"
 #import "BKGBacklog.h"
 #import "BKGStat.h"
 
-@implementation BKGProject
+@implementation BKGBacklog
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey
 {
     return [super.JSONKeyPathsByPropertyKey mtl_dictionaryByAddingEntriesFromDictionary:@{
-            @"organizationId" : @"organization_id",
-            @"themes" : @"available_themes"
-           }];
+             @"organizationId" : @"organization_id",
+             @"projectId" : @"project_id",
+             @"isMain" : @"is_main",
+             @"themes" : @"available_themes"
+            }];
 }
 
 + (NSValueTransformer *)statsJSONTransformer
 {
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:BKGStat.class];
-}
-
-+ (NSValueTransformer *)backlogsJSONTransformer
-{
-    return [NSValueTransformer mtl_JSONArrayTransformerWithModelClass:BKGBacklog.class];
 }
 
 @end

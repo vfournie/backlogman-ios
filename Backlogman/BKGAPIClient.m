@@ -97,15 +97,6 @@ static NSString * const BKGAPIClientAPIBaseURLString = @"https://app.backlogman.
        }];
 }
 
-- (void)getProjectsWithSuccess:(BKGArraySuccess)success
-                       failure:(BKGError)failure
-{
-    [self getListForPath:@"/api/projects/"
-             resultClass:[BKGProject class]
-                 success:success
-                 failure:failure];
-}
-
 - (void)getOrganizationsWithSuccess:(BKGArraySuccess)success
                             failure:(BKGError)failure
 {
@@ -113,6 +104,110 @@ static NSString * const BKGAPIClientAPIBaseURLString = @"https://app.backlogman.
              resultClass:[BKGOrganization class]
                  success:success
                  failure:failure];
+}
+
+- (void)getStandaloneProjectsWithSuccess:(BKGArraySuccess)success
+                                 failure:(BKGError)failure
+{
+    [self getListForPath:@"/api/projects/"
+             resultClass:[BKGProject class]
+                 success:^(NSArray *list) {
+                     NSMutableArray *standAloneProjects = [NSMutableArray new];
+                     for (NSDictionary *project in list) {
+                         if ([project isKindOfClass:[NSDictionary class]]) {
+                             if (project[@"organization_id"] == nil) {
+                                 [standAloneProjects addObject:standAloneProjects];
+                             }
+                         }
+                     }
+                     success(standAloneProjects);
+                 }
+                 failure:failure];
+}
+
+- (void)getProjectsForOrganizationId:(NSString *)orgId
+                             success:(BKGArraySuccess)success
+                                 failure:(BKGError)failure
+{
+    [self getListForPath:@"/api/projects/"
+             resultClass:[BKGProject class]
+                 success:success
+                 failure:failure];
+}
+
+- (void)getStoriesForBacklogId:(NSString *)backlogId
+                       success:(BKGArraySuccess)success
+                       failure:(BKGError)failure
+{
+    [self getListForPath:[NSString stringWithFormat:@"/api/backlogs/%@/stories/", backlogId]
+               resultClass:[BKGStory class]
+                   success:success
+                   failure:failure];
+}
+
+- (void)getOrganizationForId:(NSString *)organizationId
+                     success:(BKGObjectSuccess)success
+                     failure:(BKGError)failure
+{
+    [self getObjectForPath:[NSString stringWithFormat:@"/api/organizations/%@/", organizationId]
+               resultClass:[BKGStory class]
+                   success:success
+                   failure:failure];
+}
+
+- (void)getProjectForId:(NSString *)projectId
+                success:(BKGObjectSuccess)success
+                failure:(BKGError)failure
+{
+    [self getObjectForPath:[NSString stringWithFormat:@"/api/projects/%@/", projectId]
+               resultClass:[BKGStory class]
+                   success:success
+                   failure:failure];
+}
+
+- (void)getBacklogForId:(NSString *)backlogId
+                success:(BKGObjectSuccess)success
+                failure:(BKGError)failure
+{
+    [self getObjectForPath:[NSString stringWithFormat:@"/api/backlogs/%@/", backlogId]
+               resultClass:[BKGStory class]
+                   success:success
+                   failure:failure];
+}
+
+- (void)getStoryForId:(NSString *)storyId
+            backLogId:(NSString *)backlogId
+              success:(BKGObjectSuccess)success
+              failure:(BKGError)failure
+{
+    [self getObjectForPath:[NSString stringWithFormat:@"/api/backlogs/%@/stories/%@", backlogId, storyId]
+               resultClass:[BKGStory class]
+                   success:success
+                   failure:failure];
+}
+
+- (void)getObjectDetail:(BKGObject *)object
+                success:(BKGObjectSuccess)success
+                failure:(BKGError)failure
+{
+    NSString *objectUrl = [object.url absoluteString];
+    // ** HACK ** Replace http with https as the json response from the server is incorrect
+    objectUrl = [self convertToHttps:objectUrl];
+    [self getObjectForPath:objectUrl
+               resultClass:[object class]
+                   success:success
+                   failure:failure];
+}
+
+- (NSString *)convertToHttps:(NSString *)url
+{
+    NSString *str = [url copy];
+    NSInteger colon = [str rangeOfString:@":"].location;
+    if (colon != NSNotFound) {
+        str = [str substringFromIndex:colon];
+        return [@"https" stringByAppendingString:str];
+    }
+    return str;
 }
 
 #pragma mark - Notifications
@@ -123,6 +218,29 @@ static NSString * const BKGAPIClientAPIBaseURLString = @"https://app.backlogman.
 }
 
 #pragma mark - Private methods
+
+- (void)getObjectForPath:(NSString *)path
+             resultClass:(Class)resultClass
+                 success:(BKGObjectSuccess)success
+                 failure:(BKGError)failure
+{
+    [self GET:path parameters:nil
+      success:^(NSURLSessionDataTask *task, id responseObject) {
+          NSError *error;
+          id parsedObject = [self parseResponseOfClass:resultClass
+                                              fromJSON:responseObject
+                                                 error:&error];
+          if (error) {
+              failure(error);
+          }
+          else {
+              success(parsedObject);
+          }
+      }
+      failure:^(NSURLSessionDataTask *task, NSError *error) {
+          failure(error);
+      }];
+}
 
 - (void)getListForPath:(NSString *)path
            resultClass:(Class)resultClass

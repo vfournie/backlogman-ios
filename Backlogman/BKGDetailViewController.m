@@ -8,6 +8,7 @@
 
 #import "BKGDetailViewController.h"
 #import "BKGModel.h"
+#import "BKGAPIClient.h"
 
 @interface BKGDetailViewController ()
 
@@ -23,7 +24,7 @@
 {
     if (_detailItem != newDetailItem) {
         _detailItem = newDetailItem;
-        
+
         // Update the view.
         [self configureView];
     }
@@ -36,7 +37,6 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem name];
         if ([self.detailItem isKindOfClass:[BKGOrganization class]]) {
@@ -51,31 +51,32 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
-    [self configureView];
-}
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    [self configureView];
 }
 
 #pragma mark - Split view
 
-- (BOOL)splitViewController:(UISplitViewController *)svc shouldHideViewController:(UIViewController *)vc inOrientation:(UIInterfaceOrientation)orientation
+- (BOOL)splitViewController:(UISplitViewController *)svc
+   shouldHideViewController:(UIViewController *)vc
+              inOrientation:(UIInterfaceOrientation)orientation
 {
     return NO;
 }
 
-- (void)splitViewController:(UISplitViewController *)splitController willHideViewController:(UIViewController *)viewController withBarButtonItem:(UIBarButtonItem *)barButtonItem forPopoverController:(UIPopoverController *)popoverController
+- (void)splitViewController:(UISplitViewController *)splitController
+     willHideViewController:(UIViewController *)viewController
+          withBarButtonItem:(UIBarButtonItem *)barButtonItem
+       forPopoverController:(UIPopoverController *)popoverController
 {
-    barButtonItem.title = NSLocalizedString(@"Master", @"Master");
+    barButtonItem.title = viewController.title;
     [self.navigationItem setLeftBarButtonItem:barButtonItem animated:YES];
     self.masterPopoverController = popoverController;
 }
 
-- (void)splitViewController:(UISplitViewController *)splitController willShowViewController:(UIViewController *)viewController invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
+- (void)splitViewController:(UISplitViewController *)splitController
+     willShowViewController:(UIViewController *)viewController
+  invalidatingBarButtonItem:(UIBarButtonItem *)barButtonItem
 {
     // Called when the view is shown again in the split view, invalidating the button and popover controller.
     [self.navigationItem setLeftBarButtonItem:nil animated:YES];

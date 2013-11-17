@@ -126,7 +126,7 @@
     else {
         if ([self.projects count] == 0) {
             // Placeholder cell
-            cell.textLabel.text = NSLocalizedString(@"No active project", nil);
+            cell.textLabel.text = NSLocalizedString(@"No active stand-alone project", nil);
             cell.accessoryType = UITableViewCellAccessoryNone;
             cell.userInteractionEnabled = NO;
         }
@@ -146,14 +146,20 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        BKGObject *object;
-        if (indexPath.section == SECTION_ORGANIZATION) {
-            object = self.organizations[indexPath.row];
-        }
-        else {
-            object = self.projects[indexPath.row];
-        }
-        self.detailViewController.detailItem = object;
+        BKGObject *object = [self objectForIndexPath:indexPath];
+
+        // Load object detail from the server
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[BKGAPIClient sharedClient]
+             getObjectDetail:object
+             success:^(BKGObject *object) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     self.detailViewController.detailItem = object;
+                 });
+             }
+             failure:^(NSError *error) {
+             }];
+        });
     }
 }
 
@@ -161,14 +167,20 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        BKGObject *object;
-        if (indexPath.section == SECTION_ORGANIZATION) {
-            object = self.organizations[indexPath.row];
-        }
-        else {
-            object = self.projects[indexPath.row];
-        }
-        [[segue destinationViewController] setDetailItem:object];
+        BKGObject *object = [self objectForIndexPath:indexPath];
+
+        // Load object detail from the server
+        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+            [[BKGAPIClient sharedClient]
+             getObjectDetail:object
+             success:^(BKGObject *object) {
+                 dispatch_async(dispatch_get_main_queue(), ^{
+                     [[segue destinationViewController] setDetailItem:object];
+                 });
+             }
+             failure:^(NSError *error) {
+             }];
+        });
     }
 }
 
@@ -193,38 +205,54 @@
 
 #pragma mark - Private methods
 
+- (BKGObject *)objectForIndexPath:(NSIndexPath *)indexPath
+{
+    BKGObject *object;
+    if (indexPath.section == SECTION_ORGANIZATION) {
+        object = self.organizations[indexPath.row];
+    }
+    else {
+        object = self.projects[indexPath.row];
+    }
+    return object;
+}
+
 - (void)loadOrganizations
 {
-    [[BKGAPIClient sharedClient]
-     getOrganizationsWithSuccess:^(NSArray *list) {
-        [self.organizations removeAllObjects];
-        [self.organizations addObjectsFromArray:list];
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadData];
-         });
-    } failure:^(NSError *error) {
-        [self.organizations removeAllObjects];
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self.tableView reloadData];
-        });
-    }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[BKGAPIClient sharedClient]
+         getOrganizationsWithSuccess:^(NSArray *list) {
+            [self.organizations removeAllObjects];
+            [self.organizations addObjectsFromArray:list];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+             });
+        } failure:^(NSError *error) {
+            [self.organizations removeAllObjects];
+            dispatch_async(dispatch_get_main_queue(), ^{
+                [self.tableView reloadData];
+            });
+        }];
+    });
 }
 
 - (void)loadProjects
 {
-    [[BKGAPIClient sharedClient]
-     getProjectsWithSuccess:^(NSArray *list) {
-         [self.projects removeAllObjects];
-         [self.projects addObjectsFromArray:list];
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadData];
-         });
-     } failure:^(NSError *error) {
-         [self.projects removeAllObjects];
-         dispatch_async(dispatch_get_main_queue(), ^{
-             [self.tableView reloadData];
-         });
-     }];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[BKGAPIClient sharedClient]
+         getStandaloneProjectsWithSuccess:^(NSArray *list) {
+             [self.projects removeAllObjects];
+             [self.projects addObjectsFromArray:list];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+             });
+         } failure:^(NSError *error) {
+             [self.projects removeAllObjects];
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 [self.tableView reloadData];
+             });
+         }];
+    });
 }
 
 @end
