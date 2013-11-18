@@ -191,23 +191,10 @@ static NSString * const BKGAPIClientAPIBaseURLString = @"https://app.backlogman.
                 failure:(BKGError)failure
 {
     NSString *objectUrl = [object.url absoluteString];
-    // ** HACK ** Replace http with https as the json response from the server is incorrect
-    objectUrl = [self convertToHttps:objectUrl];
     [self getObjectForPath:objectUrl
                resultClass:[object class]
                    success:success
                    failure:failure];
-}
-
-- (NSString *)convertToHttps:(NSString *)url
-{
-    NSString *str = [url copy];
-    NSInteger colon = [str rangeOfString:@":"].location;
-    if (colon != NSNotFound) {
-        str = [str substringFromIndex:colon];
-        return [@"https" stringByAppendingString:str];
-    }
-    return str;
 }
 
 #pragma mark - Notifications
