@@ -146,20 +146,8 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
-        BKGObject *object = [self objectForIndexPath:indexPath];
-
-        // Load object detail from the server
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [[BKGAPIClient sharedClient]
-             getObjectDetail:object
-             success:^(BKGObject *object) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     self.detailViewController.detailItem = object;
-                 });
-             }
-             failure:^(NSError *error) {
-             }];
-        });
+        [self configureDetailViewController:self.detailViewController
+                               forIndexPath:indexPath];
     }
 }
 
@@ -167,20 +155,9 @@
 {
     if ([[segue identifier] isEqualToString:@"showDetail"]) {
         NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
-        BKGObject *object = [self objectForIndexPath:indexPath];
+        [self configureDetailViewController:[segue destinationViewController]
+                               forIndexPath:indexPath];
 
-        // Load object detail from the server
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            [[BKGAPIClient sharedClient]
-             getObjectDetail:object
-             success:^(BKGObject *object) {
-                 dispatch_async(dispatch_get_main_queue(), ^{
-                     [[segue destinationViewController] setDetailItem:object];
-                 });
-             }
-             failure:^(NSError *error) {
-             }];
-        });
     }
 }
 
@@ -205,16 +182,32 @@
 
 #pragma mark - Private methods
 
-- (BKGObject *)objectForIndexPath:(NSIndexPath *)indexPath
+- (void)configureDetailViewController:(BKGDetailViewController *)detailVC
+                         forIndexPath:(NSIndexPath *)indexPath
 {
     BKGObject *object;
     if (indexPath.section == SECTION_ORGANIZATION) {
         object = self.organizations[indexPath.row];
+        detailVC.title = NSLocalizedString(@"Organization", nil);
+
     }
     else {
         object = self.projects[indexPath.row];
+        detailVC.title = NSLocalizedString(@"Project", nil);
     }
-    return object;
+
+    // Load object detail from the server
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [[BKGAPIClient sharedClient]
+         getObjectDetail:object
+         success:^(BKGObject *object) {
+             dispatch_async(dispatch_get_main_queue(), ^{
+                 detailVC.detailItem = object;
+             });
+         }
+         failure:^(NSError *error) {
+         }];
+    });
 }
 
 - (void)loadOrganizations

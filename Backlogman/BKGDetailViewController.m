@@ -39,12 +39,6 @@
     // Update the user interface for the detail item.
     if (self.detailItem) {
         self.detailDescriptionLabel.text = [self.detailItem name];
-        if ([self.detailItem isKindOfClass:[BKGOrganization class]]) {
-            self.title = NSLocalizedString(@"Organization", nil);
-        }
-        else {
-            self.title = NSLocalizedString(@"Project", nil);
-        }
     }
 }
 
