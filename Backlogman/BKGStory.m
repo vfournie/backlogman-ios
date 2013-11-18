@@ -21,4 +21,14 @@
             }];
 }
 
++ (NSValueTransformer *)organizationIdJSONTransformer
+{
+    return [self idJSONTransformer];
+}
+
++ (NSValueTransformer *)projectIdJSONTransformer
+{
+    return [self idJSONTransformer];
+}
+
 @end

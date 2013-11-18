@@ -113,11 +113,9 @@ static NSString * const BKGAPIClientAPIBaseURLString = @"https://app.backlogman.
              resultClass:[BKGProject class]
                  success:^(NSArray *list) {
                      NSMutableArray *standAloneProjects = [NSMutableArray new];
-                     for (NSDictionary *project in list) {
-                         if ([project isKindOfClass:[NSDictionary class]]) {
-                             if (project[@"organization_id"] == nil) {
-                                 [standAloneProjects addObject:standAloneProjects];
-                             }
+                     for (BKGProject *project in list) {
+                         if (project.organizationId == nil) {
+                             [standAloneProjects addObject:project];
                          }
                      }
                      success(standAloneProjects);

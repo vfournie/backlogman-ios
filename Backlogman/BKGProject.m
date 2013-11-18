@@ -20,6 +20,11 @@
            }];
 }
 
++ (NSValueTransformer *)organizationIdJSONTransformer
+{
+    return [self idJSONTransformer];
+}
+
 + (NSValueTransformer *)statsJSONTransformer
 {
     return [NSValueTransformer mtl_JSONDictionaryTransformerWithModelClass:BKGStat.class];

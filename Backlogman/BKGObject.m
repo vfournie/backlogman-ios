@@ -19,7 +19,7 @@
             };
 }
 
-+ (NSValueTransformer *)objectIdJSONTransformer
++ (NSValueTransformer *)idJSONTransformer
 {
     return [MTLValueTransformer
             reversibleTransformerWithForwardBlock:^(NSNumber *num) {
@@ -31,6 +31,11 @@
                 }
                 return [NSDecimalNumber decimalNumberWithString:str];
             }];
+}
+
++ (NSValueTransformer *)objectIdJSONTransformer
+{
+    return [self idJSONTransformer];
 }
 
 + (NSValueTransformer *)urlJSONTransformer

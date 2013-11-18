@@ -14,4 +14,6 @@
 @property (nonatomic, copy, readonly) NSString *objectId;
 @property (nonatomic, copy, readonly) NSURL *url;
 
++ (NSValueTransformer *)idJSONTransformer;
+
 @end
