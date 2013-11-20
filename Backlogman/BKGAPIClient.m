@@ -275,7 +275,7 @@ static NSString * const BKGAPIClientAPIBaseURLString = @"https://app.backlogman.
 
 #pragma mark - JSON parsing
 
-- (id)parseResponseOfClass:(Class)resultClass fromJSON:(id)responseObject error:(NSError **)error
+- (id)parseResponseOfClass:(Class)resultClass fromJSON:(id)responseObject error:(NSError *__autoreleasing *)error
 {
 	NSParameterAssert(resultClass == nil || [resultClass isSubclassOfClass:MTLModel.class]);
 
