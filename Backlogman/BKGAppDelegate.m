@@ -8,11 +8,19 @@
 
 #import "BKGAppDelegate.h"
 #import <AFNetworking/AFNetworkActivityIndicatorManager.h>
+#import <Crashlytics/Crashlytics.h>
+#import "BKGCrashlytics.h"
+
+#define CRASHLYTICS_ENABLED defined(CRASHLYTICS_API_KEY) // && !DEBUG
 
 @implementation BKGAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+#if CRASHLYTICS_ENABLED
+    [Crashlytics startWithAPIKey:CRASHLYTICS_API_KEY];
+#endif
+
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
 
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {

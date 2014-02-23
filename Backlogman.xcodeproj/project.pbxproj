@@ -34,6 +34,7 @@
 		BF28D39E18312D4000E008AB /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF28D39C18312D4000E008AB /* InfoPlist.strings */; };
 		BF28D3A018312D4000E008AB /* BacklogmanTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BF28D39F18312D4000E008AB /* BacklogmanTests.m */; };
 		BF3723661833E80000562E00 /* BKGCredentialStore.m in Sources */ = {isa = PBXBuildFile; fileRef = BF3723651833E80000562E00 /* BKGCredentialStore.m */; };
+		BF62A51518BA555700BB3C6E /* Crashlytics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF62A51418BA555700BB3C6E /* Crashlytics.framework */; };
 		BFFBD06018339071008F9EE1 /* BKGAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = BFFBD05F18339071008F9EE1 /* BKGAPIClient.m */; };
 /* End PBXBuildFile section */
 
@@ -93,6 +94,8 @@
 		BF28D39F18312D4000E008AB /* BacklogmanTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BacklogmanTests.m; sourceTree = "<group>"; };
 		BF3723641833E80000562E00 /* BKGCredentialStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGCredentialStore.h; sourceTree = "<group>"; };
 		BF3723651833E80000562E00 /* BKGCredentialStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGCredentialStore.m; sourceTree = "<group>"; };
+		BF62A51418BA555700BB3C6E /* Crashlytics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Crashlytics.framework; sourceTree = "<group>"; };
+		BF62A51718BA5B5200BB3C6E /* BKGCrashlytics.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGCrashlytics.h; sourceTree = "<group>"; };
 		BFFBD05E18339071008F9EE1 /* BKGAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BKGAPIClient.h; sourceTree = "<group>"; };
 		BFFBD05F18339071008F9EE1 /* BKGAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BKGAPIClient.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -102,6 +105,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BF62A51518BA555700BB3C6E /* Crashlytics.framework in Frameworks */,
 				BF28D37118312D4000E008AB /* CoreGraphics.framework in Frameworks */,
 				BF28D37318312D4000E008AB /* UIKit.framework in Frameworks */,
 				BF28D36F18312D4000E008AB /* Foundation.framework in Frameworks */,
@@ -127,6 +131,7 @@
 			children = (
 				BF28D37418312D4000E008AB /* Backlogman */,
 				BF28D39918312D4000E008AB /* BacklogmanTests */,
+				BF62A51318BA555700BB3C6E /* vendor */,
 				BF28D36D18312D4000E008AB /* Frameworks */,
 				BF28D36C18312D4000E008AB /* Products */,
 				839F700533A34AB0B54742D2 /* Pods.xcconfig */,
@@ -214,9 +219,18 @@
 			name = Util;
 			sourceTree = "<group>";
 		};
+		BF62A51318BA555700BB3C6E /* vendor */ = {
+			isa = PBXGroup;
+			children = (
+				BF62A51418BA555700BB3C6E /* Crashlytics.framework */,
+			);
+			path = vendor;
+			sourceTree = "<group>";
+		};
 		BFFBD05C18339011008F9EE1 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				BF62A51718BA5B5200BB3C6E /* BKGCrashlytics.h */,
 				BF267D7B183511FD00F25D73 /* BKGModel.h */,
 				BF19710E183926BB00414E4A /* BKGEntity.h */,
 				BF19710F183926BB00414E4A /* BKGEntity.m */,
@@ -255,10 +269,12 @@
 			buildConfigurationList = BF28D3A318312D4000E008AB /* Build configuration list for PBXNativeTarget "Backlogman" */;
 			buildPhases = (
 				D4696B1C4D96401484CA871D /* Check Pods Manifest.lock */,
+				BF62A51618BA580E00BB3C6E /* Run Script (Configure Crashlytics) */,
 				BF28D36718312D4000E008AB /* Sources */,
 				BF28D36818312D4000E008AB /* Frameworks */,
 				BF28D36918312D4000E008AB /* Resources */,
 				A5547476114042FBB965C67C /* Copy Pods Resources */,
+				BFA5075118A19C11003EAF6D /* Run Script (Crashlytics) */,
 			);
 			buildRules = (
 			);
@@ -358,6 +374,36 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		BF62A51618BA580E00BB3C6E /* Run Script (Configure Crashlytics) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/API_KEYS",
+			);
+			name = "Run Script (Configure Crashlytics)";
+			outputPaths = (
+				"${SRCROOT}/Backlogman/BKGCrashlytics.h",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nHEADER=\"${SRCROOT}/Backlogman/BKGCrashlytics.h\"\nset -- bleh $(grep -s CRASHLYTICS \"${SRCROOT}/API_KEYS\")\nshift\nif [ -n \"$2\" ]; then\necho \"#define CRASHLYTICS_API_KEY @\\\"$2\\\"\" > \"$HEADER\"\nelse\n: > \"$HEADER\"\nfi\n";
+		};
+		BFA5075118A19C11003EAF6D /* Run Script (Crashlytics) */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Run Script (Crashlytics)";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\nset -- bleh $(grep -s CRASHLYTICS \"${SRCROOT}/API_KEYS\")\nshift\nif [ -z $2 ]; then\necho \"Couldn't find Crashlytics API key; skipping dsym upload.\"\nexit 0\nfi\n./vendor/Crashlytics.framework/run \"$2\"";
 		};
 		D4696B1C4D96401484CA871D /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -468,11 +514,11 @@
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				CLANG_WARN_OBJC_EXPLICIT_OWNERSHIP_TYPE = YES;
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_REPEATED_USE_OF_WEAK = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -538,6 +584,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios",
+					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios/vendor",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
 				INFOPLIST_FILE = "Backlogman/Backlogman-Info.plist";
@@ -559,6 +610,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios",
+					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios/vendor",
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
 				INFOPLIST_FILE = "Backlogman/Backlogman-Info.plist";
