@@ -121,24 +121,22 @@
 
 - (void)signInWithUsername:(NSString *)username password:(NSString *)password
 {
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [[BKGAPIClient sharedClient] signInWithUsername:username
-                                               password:password
-                                                success:^(BKGAuthToken *token) {
-                                                    id<BKGLoginViewControllerDelegate> delegate = self.signInDelegate;
-                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                        if (delegate) {
-                                                            [delegate signInDidSucceed:self];
-                                                        }
-                                                    });
-                                                }
-                                                failure:^(NSError *error) {
-                                                    dispatch_async(dispatch_get_main_queue(), ^{
-                                                        [self showError:[error localizedDescription]];
-                                                    });
-                                                }
-         ];
-    });
+    [[BKGAPIClient sharedClient] signInWithUsername:username
+                                           password:password
+                                            success:^(BKGAuthToken *token) {
+                                                id<BKGLoginViewControllerDelegate> delegate = self.signInDelegate;
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    if (delegate) {
+                                                        [delegate signInDidSucceed:self];
+                                                    }
+                                                });
+                                            }
+                                            failure:^(NSError *error) {
+                                                dispatch_async(dispatch_get_main_queue(), ^{
+                                                    [self showError:[error localizedDescription]];
+                                                });
+                                            }
+     ];
 }
 
 @end
