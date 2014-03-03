@@ -586,8 +586,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios",
-					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios/vendor",
+					./vendor,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
@@ -612,8 +611,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios",
-					"/Users/vincent/Documents/Projects/Backlogman/backlogman-ios/vendor",
+					./vendor,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Backlogman/Backlogman-Prefix.pch";
